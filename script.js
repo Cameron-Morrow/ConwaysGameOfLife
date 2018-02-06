@@ -4,6 +4,7 @@
 var speed = 200;
 var newCells = new Array();
 var live;
+var start = false;
 
 function checkIfAlive () {
 	
@@ -108,9 +109,13 @@ function PopulateAlive () {
 		}
 	}
 }
-
+function Start(){
+	if(!start){
+		start = true;
+		lives();
+	}
+}
 function lives () {
-	
 	live = setInterval(function(){
 		checkIfAlive();
 		PopulateAlive();
@@ -129,6 +134,7 @@ function Frankenstein (cell) {
 function stop () {
 	
 	clearInterval(live);
+	start = false;
 }
 
 function clearAlive () {
